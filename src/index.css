@@ -1,0 +1,59 @@
+header.ant-layout-header.navbar {
+  background: #2196f3;
+  color: white;
+  margin-top: -1px;
+  display: flex;
+  justify-content: space-between;
+}
+.navbar .ant-btn-link,
+.navbar .ant-typography {
+  color: white;
+}
+.ant-layout-content {
+  background: white;
+}
+.ant-avatar-lg {
+  width: 100%;
+  height: auto;
+}
+.ant-col,
+.p-2 {
+  padding: 1rem;
+}
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+.mb-2 {
+  margin-bottom: 1rem;
+}
+.w-100 {
+  width: 100%;
+}
+.text-center {
+  text-align: center;
+}
+.m-auto {
+  margin: auto !important;
+}
+.d-flex,
+.project-card .ant-card-body {
+  display: flex;
+}
+.bank-data span.ant-typography:first-child {
+  flex: 0.25;
+}
+.bank-data span.ant-typography {
+  flex: 1;
+}
+.project-card .ant-card-body {
+  align-items: center;
+  padding: 0.5rem;
+}
+.project-card .ant-card-body span.ant-typography {
+  display: block;
+  margin-left: 1rem;
+  color: inherit;
+}
+.project-card .ant-avatar > img {
+  height: auto;
+}
