@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { Layout, Affix, Typography, Avatar, Row, Col, Icon, Button, Card } from 'antd';
+import { Layout, Affix, Typography, Avatar, Row, Col, Icon, Button, Card, Drawer } from 'antd';
 import Home from './components/home';
 import Banks from './components/banks';
 import SearchByIfsc from './components/byIfsc';
+import Sitemap from './components/sitemap';
 import NotFound from './components/notFound';
 
 import ifscLogo from './images/ifsc.png';
@@ -16,6 +17,7 @@ import ytAutoSkip from './images/auto-skip.png';
 const App = () => {
   const { Header, Footer, Content } = Layout;
   const { Paragraph, Title, Text } = Typography;
+  const [showMobileMenu, toggleMenu] = useState(false);
 
   const projects = [
     { title: 'TCMHACK', desc: 'Web Development Blog & Tutorials.', image: tcmhack, href: 'http://tcmhack.in' },
@@ -45,6 +47,26 @@ const App = () => {
     }
   ];
 
+  const menuLinks = (mobile = false) => (
+    <div className={!mobile ? 'right-navs' : ''}>
+      <Link className="ant-btn ant-btn-link" to="/">
+        <Icon type="home" /> Home
+      </Link>
+      <Link className="ant-btn ant-btn-link" to="/banks">
+        <Icon type="bank" /> List of Banks
+      </Link>
+      <Link className="ant-btn ant-btn-link" to="/ifsc">
+        <Icon type="search" /> Search By IFSC
+      </Link>
+      <Button type="link" icon="info-circle" href="http://tcmhack.in/about-us/" target="_blank">
+        About Us
+      </Button>
+      <Button type="link" icon="mail" href="http://tcmhack.in/contact-us/" target="_blank">
+        Contact Us
+      </Button>
+    </div>
+  );
+
   return (
     <Router>
       <Layout>
@@ -55,23 +77,8 @@ const App = () => {
                 BANK IFSC CODES
               </Text>
             </Link>
-            <div className="right-navs">
-              <Link className="ant-btn ant-btn-link" to="/">
-                <Icon type="home" /> Home
-              </Link>
-              <Link className="ant-btn ant-btn-link" to="/banks">
-                <Icon type="bank" /> List of Banks
-              </Link>
-              <Link className="ant-btn ant-btn-link" to="/ifsc">
-                <Icon type="search" /> Search By IFSC
-              </Link>
-              <Button type="link" icon="info-circle" href="http://tcmhack.in/about-us/" target="_blank">
-                About Us
-              </Button>
-              <Button type="link" icon="mail" href="http://tcmhack.in/contact-us/" target="_blank">
-                Contact Us
-              </Button>
-            </div>
+            {menuLinks()}
+            <Button type="primary" shape="circle" icon="menu" className="menuBtn" onClick={() => toggleMenu(true)} />
           </Header>
         </Affix>
         <Content>
@@ -94,6 +101,7 @@ const App = () => {
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/banks" component={Banks} />
+                <Route exact path="/sitemap" component={Sitemap} />
                 <Route exact path="/ifsc" component={SearchByIfsc} />
                 <Route exact path="/ifsc/:ifsc" component={SearchByIfsc} />
                 <Route exact path="/:bankName" component={Home} />
@@ -135,6 +143,10 @@ const App = () => {
             </Text>
           </Paragraph>
         </Footer>
+
+        <Drawer title="BANK IFSC CODES" placement="left" closable={false} onClose={() => toggleMenu(false)} visible={showMobileMenu}>
+          {menuLinks(true)}
+        </Drawer>
       </Layout>
     </Router>
   );
