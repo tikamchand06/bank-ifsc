@@ -2,17 +2,15 @@ import React, { useState } from 'react';
 import { Layout, Typography, List } from 'antd';
 import bank from '../bank';
 
-import sitemap from '../sitemap/sitemap.txt';
-import sitemap1 from '../sitemap/sitemap_1.txt';
-import sitemap2 from '../sitemap/sitemap_2.txt';
-
 const Sitemap = () => {
   const { Title, Paragraph } = Typography;
 
+  const rootPath = process.env.PUBLIC_URL;
+
   const list = [
-    { title: 'General + Bank Names', href: sitemap },
-    { title: 'IFSC List 1', href: sitemap1 },
-    { title: 'IFSC List 2', href: sitemap2 }
+    { title: 'General + Bank Names', href: rootPath + '/sitemap/sitemap.txt' },
+    { title: 'IFSC List 1', href: rootPath + '/sitemap/sitemap_1.txt' },
+    { title: 'IFSC List 2', href: rootPath + '/sitemap/sitemap_2.txt' }
   ];
 
   const [data, updateData] = useState([

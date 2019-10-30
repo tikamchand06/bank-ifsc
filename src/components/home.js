@@ -49,8 +49,6 @@ const Home = ({ match: { params } }) => {
     getBankNames();
   }, []);
 
-  console.log(state);
-
   return (
     <Layout.Content>
       <Title level={3} className="text-center">
