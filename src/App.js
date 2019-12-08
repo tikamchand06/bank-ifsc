@@ -135,11 +135,20 @@ const App = () => {
           </Paragraph>
           <Paragraph>
             <Text strong>
-              All details has been taken from the{' '}
+              All details are taken from{' '}
               <a href="https://www.rbi.org.in/Scripts/bs_viewcontent.aspx?Id=2009" target="_blank" rel="noopener noreferrer">
-                RBI's website.
+                RBI website.
               </a>{' '}
-              Last updated on: 20th Oct 2019.
+              Data Last updated on: 29th Apr, 2017
+            </Text>
+          </Paragraph>
+          <Paragraph>
+            <Text strong>
+              @{' '}
+              <a href="http://tcmhack.in" target="_blank" rel="noopener noreferrer">
+                TCMHACK
+              </a>{' '}
+              {new Date().getFullYear()}. All Right Reserved
             </Text>
           </Paragraph>
         </Footer>

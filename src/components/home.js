@@ -57,7 +57,7 @@ const Home = ({ match: { params } }) => {
       <Paragraph className="p-2">
         <Select
           className="w-100 mb-2"
-          placeholder="Select Bank Name"
+          placeholder="Select Bank Name..."
           loading={!banks}
           disabled={!banks}
           showSearch
@@ -72,11 +72,20 @@ const Home = ({ match: { params } }) => {
             ))}
         </Select>
 
-        <Search placeholder="Enter Branch Name" onSearch={value => searchBank(value)} enterButton className="mb-2" />
+        <Search placeholder="Enter Location Name..." onSearch={value => searchBank(value)} enterButton className="mb-2" />
 
         {alertMsg && <Alert message={alertMsg} type="success" showIcon />}
 
-        {branches && <Table columns={columns} dataSource={branches} rowKey={record => record._id} ellipsis bordered />}
+        {branches && (
+          <Table
+            columns={columns}
+            dataSource={branches}
+            rowKey={record => record._id}
+            ellipsis
+            bordered
+            style={{ overflow: 'auto' }}
+          />
+        )}
       </Paragraph>
     </Layout.Content>
   );
