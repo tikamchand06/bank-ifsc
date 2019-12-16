@@ -11,7 +11,12 @@ const Sitemap = () => {
     { title: 'General + Bank Names', href: rootPath + '/sitemap/sitemap.txt' },
     { title: 'IFSC List 1', href: rootPath + '/sitemap/sitemap_1.txt' },
     { title: 'IFSC List 2', href: rootPath + '/sitemap/sitemap_2.txt' },
-    { title: 'IFSC List 3', href: rootPath + '/sitemap/sitemap_3.txt' }
+    { title: 'IFSC List 3', href: rootPath + '/sitemap/sitemap_3.txt' },
+    { title: 'IFSC List 4', href: rootPath + '/sitemap/sitemap_4.txt' },
+    { title: 'IFSC List 5', href: rootPath + '/sitemap/sitemap_5.txt' },
+    { title: 'IFSC List 6', href: rootPath + '/sitemap/sitemap_6.txt' },
+    { title: 'IFSC List 7', href: rootPath + '/sitemap/sitemap_7.txt' },
+    { title: 'IFSC List 8', href: rootPath + '/sitemap/sitemap_8.txt' }
   ];
 
   const [data, updateData] = useState([
@@ -31,7 +36,7 @@ const Sitemap = () => {
       sitemapArray.unshift(baseUrl);
     } else {
       const dataArray = [];
-      for (let i = 110; i < 120; i++) {
+      for (let i = 178; i < 190; i++) {
         const bankName = banks[i];
         const result2 = await bank.get(`/listbranches/${bankName}`);
         console.log('Bank', i, result2, bankName);

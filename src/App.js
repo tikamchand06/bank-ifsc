@@ -113,7 +113,7 @@ const App = () => {
               <Title level={4}>Our Other Projects</Title>
               {projects.map((project, key) => (
                 <Card className="mb-1 project-card" key={key}>
-                  <Avatar src={project.image} size={64} />
+                  <Avatar src={project.image} size={64} style={{ padding: '5px' }} />
                   <Typography>
                     <a href={project.href} target="_blank" rel="noopener noreferrer">
                       <Text strong>{project.title}</Text>
@@ -144,9 +144,8 @@ const App = () => {
           </Paragraph>
           <Paragraph>
             <Text strong>
-              @{' '}
               <a href="http://tcmhack.in" target="_blank" rel="noopener noreferrer">
-                TCMHACK
+                @TCMHACK
               </a>{' '}
               {new Date().getFullYear()}. All Right Reserved
             </Text>
